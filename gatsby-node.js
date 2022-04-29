@@ -145,14 +145,14 @@ exports.createSchemaCustomization = ({ actions }) => {
       slug: String
       srcLink: String
     }
-    
+
     type NavDataNavItemsLinks {
       id: String
       label: String
       remote: String
       href: String
     }
-    
+
     type NavDataNavItems {
       id: String
       label: String
