@@ -1,13 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-import { MDXProvider } from '@mdx-js/react';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { Link } from 'gatsby';
-import { PageSection, PageSectionVariants, TextContent } from '@patternfly/react-core';
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
+import { MDXProvider } from "@mdx-js/react";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import { Link } from "gatsby";
+import {
+  PageSection,
+  PageSectionVariants,
+  TextContent,
+} from "@patternfly/react-core";
 
-import Layout from '../components/Layout';
-import Seo from '../components/Seo';
+import Layout from "../components/Layout";
+import Seo from "../components/Seo";
 // import './Mdx.scss';
 
 export const pageQuery = graphql`

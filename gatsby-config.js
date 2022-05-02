@@ -1,14 +1,16 @@
-const fs = require('fs');
-const yaml = require('js-yaml');
-const localSources = yaml.load(fs.readFileSync('./config/content-sources.yaml', 'utf-8'));
+const fs = require("fs");
+const yaml = require("js-yaml");
+const localSources = yaml.load(
+  fs.readFileSync("./config/content-sources.yaml", "utf-8")
+);
 
 const remoteSources = [
   {
-    name: 'documentation/core',
-    remote: 'https://github.com/thoth-station/core.git',
-    patterns: ['docs/**/*.md'],
+    name: "documentation/core",
+    remote: "https://github.com/thoth-station/core.git",
+    patterns: ["docs/**/*.md"],
   },
-]
+];
 
 module.exports = {
   siteMetadata: {
@@ -17,9 +19,9 @@ module.exports = {
     siteUrl: `https://thoth-station.ninja/help`,
     // default URL for all content within this repository for linking to the source of the content
     srcLinkDefault: `https://github.com/thoth-station/thoth-station.github.io`,
-    github: 'https://github.com/thoth-station',
-    youtube: 'https://www.youtube.com/channel/UClUIDuq_hQ6vlzmqM59B2Lw',
-    twitter: 'https://twitter.com/ThothStation',
+    github: "https://github.com/thoth-station",
+    youtube: "https://www.youtube.com/channel/UClUIDuq_hQ6vlzmqM59B2Lw",
+    twitter: "https://twitter.com/ThothStation",
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -34,7 +36,7 @@ module.exports = {
       },
     })),
     ...localSources.map(({ dir, name, ignore }) => ({
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/${dir}`,
         name,
@@ -90,15 +92,15 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.nodes.map(node => {
+              return allMdx.nodes.map((node) => {
                 return Object.assign({}, node.frontmatter, {
                   description: node.excerpt,
                   date: node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
                   custom_elements: [{ "content:encoded": node.html }],
-                })
-              })
+                });
+              });
             },
             query: `
               {
@@ -144,4 +146,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

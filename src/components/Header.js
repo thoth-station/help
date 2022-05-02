@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link, useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import {
   PageHeader,
   PageHeaderTools,
@@ -9,22 +9,23 @@ import {
   NavList,
   NavItem,
   Button,
-} from '@patternfly/react-core';
-import GithubIcon from '@patternfly/react-icons/dist/esm/icons/github-icon';
-import YoutubeIcon from '@patternfly/react-icons/dist/esm/icons/youtube-icon';
-import TwitterIcon from '@patternfly/react-icons/dist/esm/icons/twitter-icon';
+} from "@patternfly/react-core";
+import GithubIcon from "@patternfly/react-icons/dist/esm/icons/github-icon";
+import YoutubeIcon from "@patternfly/react-icons/dist/esm/icons/youtube-icon";
+import TwitterIcon from "@patternfly/react-icons/dist/esm/icons/twitter-icon";
 
 const TopNav = ({ location }) => {
-  const navItems = [
-    ['documentation', 'Documentation'],
-
-  ];
+  const navItems = [["documentation", "Documentation"]];
 
   return (
     <Nav variant="horizontal">
       <NavList>
         {navItems.map(([id, label]) => (
-          <NavItem key={id} itemId={id} isActive={location.pathname.startsWith(`/${id}/`)}>
+          <NavItem
+            key={id}
+            itemId={id}
+            isActive={location.pathname.startsWith(`/${id}/`)}
+          >
             <Link to={`/${id}/`}>{label}</Link>
           </NavItem>
         ))}
@@ -58,17 +59,17 @@ const HeaderTools = () => {
   const headerTools = [
     {
       href: links.github,
-      ariaLabel: 'Thoth Station GitHub organization',
+      ariaLabel: "Thoth Station GitHub organization",
       icon: <GithubIcon />,
     },
     {
       href: links.youtube,
-      ariaLabel: 'Thoth Station YouTube',
+      ariaLabel: "Thoth Station YouTube",
       icon: <YoutubeIcon />,
     },
     {
       href: links.twitter,
-      ariaLabel: 'Thoth Station Twitter',
+      ariaLabel: "Thoth Station Twitter",
       icon: <TwitterIcon />,
     },
   ];
@@ -77,7 +78,13 @@ const HeaderTools = () => {
     <PageHeaderTools>
       {headerTools.map((t) => (
         <PageHeaderToolsItem key={t.href}>
-          <Button component="a" variant="plain" href={t.href} target="top" aria-label={t.ariaLabel}>
+          <Button
+            component="a"
+            variant="plain"
+            href={t.href}
+            target="top"
+            aria-label={t.ariaLabel}
+          >
             {t.icon}
           </Button>
         </PageHeaderToolsItem>
@@ -89,8 +96,8 @@ const HeaderTools = () => {
 export const Header = ({ isNavOpen, onNavToggle, location }) => (
   <PageHeader
     className="header"
-    logoProps={{ href: '/' }}
-    showNavToggle={location.pathname !== '/'}
+    logoProps={{ href: "/" }}
+    showNavToggle={location.pathname !== "/"}
     isNavOpen={isNavOpen}
     onNavToggle={onNavToggle}
     topNav={<TopNav location={location} />}

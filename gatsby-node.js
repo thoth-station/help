@@ -1,16 +1,18 @@
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const path = require(`path`);
+const { createFilePath } = require(`gatsby-source-filesystem`);
 const fs = require(`fs`);
 const yaml = require(`js-yaml`);
 const { nanoid } = require(`nanoid`);
 
-const tocSources = yaml.load(fs.readFileSync(`./config/toc-sources.yaml`, `utf-8`));
+const tocSources = yaml.load(
+  fs.readFileSync(`./config/toc-sources.yaml`, `utf-8`)
+);
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   // Define a template for blog post
-  const file = path.resolve(`./src/templates/Mdx.js`)
+  const file = path.resolve(`./src/templates/Mdx.js`);
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
@@ -29,17 +31,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         }
       }
     `
-  )
+  );
 
   if (result.errors) {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
       result.errors
-    )
-    return
+    );
+    return;
   }
 
-  const posts = result.data.allMdx.nodes
+  const posts = result.data.allMdx.nodes;
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
@@ -47,8 +49,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (posts.length > 0) {
     posts.forEach((post, index) => {
-      const previousPostId = index === 0 ? null : posts[index - 1].id
-      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+      const previousPostId = index === 0 ? null : posts[index - 1].id;
+      const nextPostId =
+        index === posts.length - 1 ? null : posts[index + 1].id;
 
       createPage({
         path: post.fields.slug,
@@ -58,45 +61,58 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           previousPostId,
           nextPostId,
         },
-      })
-    })
+      });
+    });
   }
-}
+};
 
-exports.onCreateNode = ({ node, getNode, actions: { createNodeField }, reporter }) => {
+exports.onCreateNode = ({
+  node,
+  getNode,
+  actions: { createNodeField },
+  reporter,
+}) => {
   if (node.internal.type === `Mdx`) {
     const fileNode = getNode(node.parent);
     const gitRemoteNode = getNode(fileNode.gitRemote___NODE);
 
     const slug =
-      (gitRemoteNode ? `/${gitRemoteNode.sourceInstanceName}` : '') +
+      (gitRemoteNode ? `/${gitRemoteNode.sourceInstanceName}` : "") +
       createFilePath({
         node,
         getNode,
-        basePath: '',
+        basePath: "",
         trailingSlash: false,
       }) +
-      (fileNode.name !== 'index' ? `.${fileNode.extension}` : '');
+      (fileNode.name !== "index" ? `.${fileNode.extension}` : "");
 
     const srcLink =
       (gitRemoteNode
         ? `${gitRemoteNode.webLink}/blob/master/`
-        : `${getNode('Site').siteMetadata.srcLinkDefault}/blob/master/content/`) +
-      fileNode.relativePath;
+        : `${
+            getNode("Site").siteMetadata.srcLinkDefault
+          }/blob/master/content/`) + fileNode.relativePath;
 
-    createNodeField({ node, name: 'slug', value: slug });
-    createNodeField({ node, name: 'srcLink', value: srcLink });
+    createNodeField({ node, name: "slug", value: slug });
+    createNodeField({ node, name: "srcLink", value: srcLink });
 
     reporter.info(`node created: ${slug}`);
   }
-}
+};
 
 // Create new node collection `NavData` for navigation, parsing table of content files `tocSources`
-exports.sourceNodes = ({ actions: { createNode }, createNodeId, createContentDigest, reporter, }) => {
+exports.sourceNodes = ({
+  actions: { createNode },
+  createNodeId,
+  createContentDigest,
+  reporter,
+}) => {
   const navItems = tocSources.flatMap((tocSource) => {
     const fileLocation = `${__dirname}/${tocSource}`;
     if (!fs.existsSync(fileLocation)) {
-      reporter.error(`Table of Contents file ${fileLocation} missing.  Skipped.`);
+      reporter.error(
+        `Table of Contents file ${fileLocation} missing.  Skipped.`
+      );
       return [];
     }
     const toc = yaml.load(fs.readFileSync(fileLocation, `utf-8`));
@@ -104,7 +120,9 @@ exports.sourceNodes = ({ actions: { createNode }, createNodeId, createContentDig
     return toc.map((navItem) => ({
       ...navItem,
       id: navItem.id || nanoid(),
-      links: navItem.links && navItem.links.map((link) => ({ ...link, id: link.id || nanoid() })),
+      links:
+        navItem.links &&
+        navItem.links.map((link) => ({ ...link, id: link.id || nanoid() })),
     }));
   });
 
@@ -117,11 +135,11 @@ exports.sourceNodes = ({ actions: { createNode }, createNodeId, createContentDig
     },
   });
 
-  reporter.success('nodes created: NavData');
+  reporter.success("nodes created: NavData");
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
+  const { createTypes } = actions;
 
   // Explicitly define the siteMetadata {} object
   // This way those will always be defined even if removed from gatsby-config.js
@@ -158,5 +176,5 @@ exports.createSchemaCustomization = ({ actions }) => {
       label: String
       href: String
     }
-  `)
-}
+  `);
+};
