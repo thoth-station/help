@@ -1,0 +1,59 @@
+{
+  "name": "help",
+  "description": "Thoth Station Help",
+  "version": "0.1.0",
+  "bugs": {
+    "url": "https://github.com/thoth-station/help/issues"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "@patternfly/patternfly": "^4.192.1",
+    "@patternfly/react-core": "^4.206.2",
+    "@patternfly/react-icons": "^4.57.2",
+    "gatsby": "^4.13.0",
+    "gatsby-plugin-feed": "^4.13.0",
+    "gatsby-plugin-gatsby-cloud": "^4.13.0",
+    "gatsby-plugin-google-analytics": "^4.13.0",
+    "gatsby-plugin-image": "^2.13.0",
+    "gatsby-plugin-manifest": "^4.13.0",
+    "gatsby-plugin-mdx": "^3.13.0",
+    "gatsby-plugin-offline": "^5.13.0",
+    "gatsby-plugin-react-helmet": "^5.13.0",
+    "gatsby-plugin-sharp": "^4.13.0",
+    "gatsby-remark-copy-linked-files": "^5.13.0",
+    "gatsby-remark-images": "^6.13.0",
+    "gatsby-remark-prismjs": "^6.13.0",
+    "gatsby-remark-responsive-iframe": "^5.13.0",
+    "gatsby-remark-smartypants": "^5.13.0",
+    "gatsby-source-filesystem": "^4.13.0",
+    "gatsby-source-git": "^1.1.0",
+    "gatsby-transformer-sharp": "^4.13.0",
+    "js-yaml": "^4.1.0",
+    "nanoid": "^3.3.3",
+    "prismjs": "^1.28.0",
+    "prop-types": "^15.8.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "typeface-merriweather": "0.0.72",
+    "typeface-montserrat": "0.0.75"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2"
+  },
+  "homepage": "https://thoth-station.ninja/help",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thoth-station/help.git"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  }
+}
