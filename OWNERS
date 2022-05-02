@@ -2,13 +2,11 @@
 
 approvers:
   - Gkrumbach07
-  - suppathak
-  - oindrillac
-  - xtuchyna
   - goern
+  - fridex
+  - sesheta
 reviewers:
   - Gkrumbach07
-  - suppathak
-  - oindrillac
   - xtuchyna
   - goern
+  - fridex
