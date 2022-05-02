@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useStaticQuery, Link, graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
+import { useStaticQuery, Link, graphql } from "gatsby";
 import {
   Nav,
   NavExpandable,
   NavItem as DefaultNavItem,
   NavList,
   PageSidebar,
-} from '@patternfly/react-core';
+} from "@patternfly/react-core";
 
 const NavItem = ({ id, label, href, remote, location }) => {
   let isActive = location.pathname === href;
@@ -36,7 +36,8 @@ NavItem.propTypes = {
 const NavGroup = (props) => {
   const { id, label, links, location, href } = props;
 
-  const isSubPath = (path) => location.pathname.split('/')[1] === path.split('/')[1];
+  const isSubPath = (path) =>
+    location.pathname.split("/")[1] === path.split("/")[1];
 
   if (!links) {
     if (!isSubPath(href)) {
@@ -60,7 +61,13 @@ const NavGroup = (props) => {
     return null;
   }
   return (
-    <NavExpandable key={id} title={label} groupId={id} isActive={isActive} isExpanded={isActive}>
+    <NavExpandable
+      key={id}
+      title={label}
+      groupId={id}
+      isActive={isActive}
+      isExpanded={isActive}
+    >
       {navItems}
     </NavExpandable>
   );
@@ -97,7 +104,7 @@ export const NavSidebar = ({ isNavOpen, location }) => {
   ).navData.navItems;
 
   // No Sidebar for mainpage
-  if (location.pathname === '/') {
+  if (location.pathname === "/") {
     return <div />;
   }
 
@@ -108,7 +115,9 @@ export const NavSidebar = ({ isNavOpen, location }) => {
         <Nav className="nav" theme="dark" aria-label="Nav">
           <NavList>
             {location &&
-              navData.map((node) => <NavGroup key={node.id} {...node} location={location} />)}
+              navData.map((node) => (
+                <NavGroup key={node.id} {...node} location={location} />
+              ))}
           </NavList>
         </Nav>
       }
