@@ -9,10 +9,17 @@ import {
   NavList,
   NavItem,
   Button,
+  Brand,
+  Flex,
+  Text,
+  TextVariants,
+  FlexItem,
 } from "@patternfly/react-core";
 import GithubIcon from "@patternfly/react-icons/dist/esm/icons/github-icon";
 import YoutubeIcon from "@patternfly/react-icons/dist/esm/icons/youtube-icon";
 import TwitterIcon from "@patternfly/react-icons/dist/esm/icons/twitter-icon";
+
+import logo from "./logo.png";
 
 const TopNav = ({ location }) => {
   const navItems = [["documentation", "Documentation"]];
@@ -97,6 +104,21 @@ export const Header = ({ isNavOpen, onNavToggle, location }) => (
   <PageHeader
     className="header"
     logoProps={{ href: "/" }}
+    logo={
+      <Flex alignItems={{ default: "alignItemsCenter" }}>
+        <FlexItem>
+          <Brand src={logo} alt="Thoth Logo" />
+        </FlexItem>
+        <FlexItem>
+          <Text
+            style={{ color: "white", fontWeight: "bolder" }}
+            component={TextVariants.h1}
+          >
+            Project Thoth Help
+          </Text>
+        </FlexItem>
+      </Flex>
+    }
     showNavToggle={location.pathname !== "/"}
     isNavOpen={isNavOpen}
     onNavToggle={onNavToggle}
