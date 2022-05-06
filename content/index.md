@@ -15,9 +15,9 @@
 # Get Involved
 [Main page](https://thoth-station.ninja/) |
 [Project board](https://github.com/orgs/thoth-station/projects/) |
-[YouTube channel](https://www.youtube.com/channel/UClUIDuq_hQ6vlzmqM59B2Lw) | 
-[Twitter](https://twitter.com/ThothStation) | 
-[Talks and articles](https://github.com/thoth-station/talks) | 
+[YouTube channel](https://www.youtube.com/channel/UClUIDuq_hQ6vlzmqM59B2Lw) |
+[Twitter](https://twitter.com/ThothStation) |
+[Talks and articles](https://github.com/thoth-station/talks) |
 [Datasets](https://github.com/thoth-station/datasets)
 
 ### Contact Us
