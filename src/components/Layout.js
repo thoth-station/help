@@ -11,8 +11,10 @@ import {
 
 import { Header } from "./Header";
 import { NavSidebar } from "./NavSidebar";
+import { Footer } from "./Footer";
 
-import "@patternfly/patternfly/patternfly.css";
+import "@patternfly/react-core/dist/styles/base.css";
+import "./Layout.scss";
 
 export const Layout = ({ location, srcLink, banner, children }) => {
   const [isNavOpen, setIsNavOpen] = useState(true);
@@ -59,6 +61,7 @@ export const Layout = ({ location, srcLink, banner, children }) => {
           </Button>
         </TextContent>
       </PageSection>
+      <Footer />
     </Page>
   );
 };

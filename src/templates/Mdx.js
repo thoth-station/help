@@ -40,7 +40,12 @@ const DocTemplate = ({ data: { site, mdx }, location }) => {
   const shortcodes = { Link }; // Provide common components here
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout
+      location={location}
+      title={siteTitle}
+      srcLink={mdx.fields.srcLink}
+      banner={mdx.frontmatter.banner}
+    >
       <Seo
         title={mdx.frontmatter.title}
         description={mdx.frontmatter.description}

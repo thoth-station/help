@@ -13,19 +13,20 @@ const remoteSources = [
 ];
 
 module.exports = {
+  pathPrefix: `/help`,
   siteMetadata: {
     title: `Thoth Station Help`,
     description: `Thoth Station Help`,
     siteUrl: `https://thoth-station.ninja/help`,
     // default URL for all content within this repository for linking to the source of the content
-    srcLinkDefault: `https://github.com/thoth-station/thoth-station.github.io`,
+    srcLinkDefault: `https://github.com/thoth-station/help`,
     github: "https://github.com/thoth-station",
     youtube: "https://www.youtube.com/channel/UClUIDuq_hQ6vlzmqM59B2Lw",
     twitter: "https://twitter.com/ThothStation",
   },
   plugins: [
     `gatsby-plugin-image`,
-
+    `gatsby-plugin-sass`,
     ...remoteSources.map(({ name, remote, patterns }) => ({
       resolve: `gatsby-source-git`,
       options: {
@@ -52,6 +53,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 630,
+              linkImagesToOriginal: false
             },
           },
           {
@@ -132,7 +134,7 @@ module.exports = {
       options: {
         name: `Thoth Station Help`,
         short_name: `Help`,
-        start_url: `/`,
+        start_url: `/help/`,
         background_color: `#ffffff`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
