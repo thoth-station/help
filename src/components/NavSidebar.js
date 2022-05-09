@@ -113,8 +113,6 @@ export const NavSidebar = ({ isNavOpen, location }) => {
     return <div />;
   }
 
-  console.log(location.pathname, withPrefix("/"))
-
   return (
     <PageSidebar
       isNavOpen={isNavOpen}
