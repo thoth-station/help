@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { Link, useStaticQuery, graphql, withPrefix } from 'gatsby';
 import {
   PageHeader,
   PageHeaderTools,
@@ -103,7 +103,7 @@ const HeaderTools = () => {
 export const Header = ({ isNavOpen, onNavToggle, location }) => (
   <PageHeader
     className="header"
-    logoProps={{ href: "/" }}
+    logoProps={{ href: withPrefix("/") }}
     logo={
       <Flex alignItems={{ default: "alignItemsCenter" }}>
         <FlexItem>
