@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useStaticQuery, Link, graphql } from "gatsby";
+import { useStaticQuery, Link, graphql, withPrefix } from "gatsby";
+
 import {
   Nav,
   NavExpandable,
@@ -36,8 +37,12 @@ NavItem.propTypes = {
 const NavGroup = (props) => {
   const { id, label, links, location, href } = props;
 
-  const isSubPath = (path) =>
-    location.pathname.split("/")[1] === path.split("/")[1];
+  const isSubPath = (path) => {
+    console.log(withPrefix(path))
+
+    return location.pathname.split("/")[1] === (withPrefix(path)).split("/")[1];
+  }
+
 
   if (!links) {
     if (!isSubPath(href)) {
@@ -104,7 +109,7 @@ export const NavSidebar = ({ isNavOpen, location }) => {
   ).navData.navItems;
 
   // No Sidebar for mainpage
-  if (location.pathname === "/") {
+  if (location.pathname === withPrefix("/")) {
     return <div />;
   }
 
