@@ -119,7 +119,7 @@ export const Header = ({ isNavOpen, onNavToggle, location }) => (
         </FlexItem>
       </Flex>
     }
-    showNavToggle={location.pathname !== "/"}
+    showNavToggle={location.pathname !== withPrefix("/")}
     isNavOpen={isNavOpen}
     onNavToggle={onNavToggle}
     topNav={<TopNav location={location} />}
