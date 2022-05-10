@@ -38,8 +38,6 @@ const NavGroup = (props) => {
   const { id, label, links, location, href } = props;
 
   const isSubPath = (path) => {
-    console.log(withPrefix(path))
-
     return location.pathname.split("/")[1] === (withPrefix(path)).split("/")[1];
   }
 
@@ -59,7 +57,7 @@ const NavGroup = (props) => {
     if (c.remote) {
       return false;
     }
-    return location.pathname.startsWith(c.href);
+    return location.pathname.startsWith(withPrefix(c.href));
   });
 
   if (navItems.filter(Boolean).length === 0) {
