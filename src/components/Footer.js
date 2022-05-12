@@ -1,11 +1,7 @@
 import React from "react";
 import {
-  Brand,
-  Button,
   Flex,
   FlexItem,
-  Grid,
-  GridItem,
   Stack,
   StackItem,
   Text,
@@ -63,12 +59,12 @@ export const Footer = () => (
             </Text>
           </StackItem>
           <StackItem>
-            <Link className="footer-link" to="/docs/developers/adviser/landing_page.html#landing-page">
+            <Link replace className="footer-link" to="https://thoth-station.ninja/docs/developers/adviser/landing_page.html#landing-page">
               Thoth's landing page
             </Link>
           </StackItem>
           <StackItem>
-            <Link className="footer-link" to="/docs/developers/adviser/">
+            <Link replace className="footer-link" to="https://thoth-station.ninja/docs/developers/adviser/">
               Main documentation page
             </Link>
           </StackItem>
