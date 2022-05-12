@@ -18,7 +18,6 @@ import {
 import GithubIcon from "@patternfly/react-icons/dist/esm/icons/github-icon";
 import YoutubeIcon from "@patternfly/react-icons/dist/esm/icons/youtube-icon";
 import TwitterIcon from "@patternfly/react-icons/dist/esm/icons/twitter-icon";
-import { AngleLeftIcon } from "@patternfly/react-icons/dist/esm/icons";
 
 import logo from "./logo.png";
 
@@ -33,7 +32,7 @@ const TopNav = ({ location }) => {
           <NavItem
             key={id}
             itemId={id}
-            isActive={location.pathname.startsWith(`/${id}`) && (id !== "" || location.pathname === "/")}
+            isActive={location.pathname.startsWith(withPrefix(`/${id}`)) && (id !== "" || location.pathname === withPrefix("/"))}
           >
             <Link to={`/${id}`}>{label}</Link>
           </NavItem>
