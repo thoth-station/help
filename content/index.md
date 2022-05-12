@@ -29,7 +29,4 @@ Follow instructions in the [thoth-station/core repository](https://github.com/th
 ### Special Interest Groups
 The whole team is formed into “Special Interest Groups” (SIG). More info can be found in the [thoth-station/core repository](https://github.com/thoth-station/core/blob/master/community/sig-list.md).
 
-### Red Hat Mailing List
-You can subscribe to `aicoe` and `aicoe-thoth` Red Hat internal mailing lists for project updates and discussion.
-
 </div>

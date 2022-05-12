@@ -1,60 +1,99 @@
 import React from "react";
-import { Grid, GridItem, Text, TextVariants } from "@patternfly/react-core";
-import redhatLogo from "./RHLogo.png";
+import {
+  Flex,
+  FlexItem,
+  Stack,
+  StackItem,
+  Text,
+  TextVariants
+} from '@patternfly/react-core';
+import footer_logo from "./footer_logo.png"
 import "./Footer.scss";
+import { Link } from 'gatsby';
 
 export const Footer = () => (
-  <footer key="footer-2" className="ws-org-pfsite-l-footer-dark pf-m-no-fill">
-    <Grid className="pf-u-py-xl-on-sm pf-u-py-0-on-md pf-u-align-items-center">
-      <GridItem md={2} mdOffset={1}>
-        <Text
-          component={TextVariants.a}
-          href="//www.redhat.com"
-          target="top"
-          aria-label="Visit Red Hat.com"
-        >
-          <img src={redhatLogo} alt="Red Hat logo" width="100px" />
-        </Text>
-      </GridItem>
-      <GridItem md={3}>
-        <span className="ws-org-pfsite-site-copyright">
-          Thoth Station is a Red Hat Initiative.
-        </span>
-      </GridItem>
-      <GridItem md={6}>
-        <Text
-          component={TextVariants.a}
-          href="//www.redhat.com/en/about/privacy-policy"
-          target="top"
-          aria-label="Privacy statement"
-        >
-          Privacy statement
-        </Text>
-        <Text
-          component={TextVariants.a}
-          href="//www.redhat.com/en/about/terms-use"
-          target="top"
-          aria-label="Terms of use"
-        >
-          Terms of use
-        </Text>
-        <Text
-          component={TextVariants.a}
-          href="//www.redhat.com/en/about/all-policies-guidelines"
-          target="top"
-          aria-label="All policies and guidelines"
-        >
-          All policies and guidelines
-        </Text>
-        <Text
-          component={TextVariants.a}
-          href="//www.openstack.org/legal/community-code-of-conduct/"
-          target="top"
-          aria-label="Code of Conduct"
-        >
-          Code of Conduct
-        </Text>
-      </GridItem>
-    </Grid>
+    <footer>
+      <Flex className="footer" justifyContent={{ default: "justifyContentCenter" }} alignItems={{default: 'alignItemsFlexStart'}}>
+        <FlexItem className="column">
+          <img alt="Red Hat Sponsor Logo" src={footer_logo} style={{height: "40px"}}/>
+        </FlexItem>
+        <FlexItem className="column">
+          <Stack>
+            <StackItem>
+              <Text component={TextVariants.h3}>
+                Useful links
+              </Text>
+            </StackItem>
+            <StackItem>
+              <Link className="footer-link" replace to="https://github.com/orgs/thoth-station/projects/">
+                GitHub project board
+              </Link>
+            </StackItem>
+            <StackItem>
+              <Link className="footer-link" replace to="http://bit.ly/thoth-on-youtube">
+                YouTube channel
+              </Link>
+            </StackItem>
+            <StackItem>
+              <Link className="footer-link" replace to="https://twitter.com/ThothStation">
+               Twitter
+              </Link>
+            </StackItem>
+            <StackItem>
+              <Link className="footer-link" replace to="https://github.com/thoth-station">
+                GitHub organization
+              </Link>
+            </StackItem>
+            <StackItem>
+              <Link className="footer-link" replace to="https://www.kaggle.com/thothstation">
+                Kaggle datasets
+              </Link>
+            </StackItem>
+          </Stack>
+        </FlexItem>
+        <FlexItem className="column">
+        <Stack>
+          <StackItem>
+            <Text component={TextVariants.h3}>
+              Info
+            </Text>
+          </StackItem>
+          <StackItem>
+            <Link replace className="footer-link" to="https://thoth-station.ninja/docs/developers/adviser/landing_page.html#landing-page">
+              Thoth's landing page
+            </Link>
+          </StackItem>
+          <StackItem>
+            <Link replace className="footer-link" to="https://thoth-station.ninja/docs/developers/adviser/">
+              Main documentation page
+            </Link>
+          </StackItem>
+        </Stack>
+        </FlexItem>
+        <FlexItem className="column">
+          <Stack>
+            <StackItem>
+              <Text component={TextVariants.h3}>
+                Friends
+              </Text>
+            </StackItem>
+            <StackItem>
+              <Link className="footer-link" replace to="https://github.com/AICoE/aicoe-ci">
+                AICoE-CI
+              </Link>
+            </StackItem>
+            <StackItem>
+              <Link className="footer-link" replace to="https://www.operate-first.cloud/">
+                Operate First
+              </Link>
+            </StackItem>
+            <StackItem>
+              <Link className="footer-link" replace to="http://opendatahub.io/">
+                Open Data Hub
+              </Link>
+            </StackItem>
+          </Stack>
+        </FlexItem>
+      </Flex>
   </footer>
 );

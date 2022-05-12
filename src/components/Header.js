@@ -22,7 +22,8 @@ import TwitterIcon from "@patternfly/react-icons/dist/esm/icons/twitter-icon";
 import logo from "./logo.png";
 
 const TopNav = ({ location }) => {
-  const navItems = [["documentation", "Documentation"]];
+  const navItems = [["", "Home"], ["documentation", "Documentation"]];
+
 
   return (
     <Nav variant="horizontal">
@@ -31,9 +32,9 @@ const TopNav = ({ location }) => {
           <NavItem
             key={id}
             itemId={id}
-            isActive={location.pathname.startsWith(`/${id}/`)}
+            isActive={location.pathname.startsWith(withPrefix(`/${id}`)) && (id !== "" || location.pathname === withPrefix("/"))}
           >
-            <Link to={`/${id}/`}>{label}</Link>
+            <Link to={`/${id}`}>{label}</Link>
           </NavItem>
         ))}
       </NavList>
@@ -103,7 +104,7 @@ const HeaderTools = () => {
 export const Header = ({ isNavOpen, onNavToggle, location }) => (
   <PageHeader
     className="header"
-    logoProps={{ href: withPrefix("/") }}
+    logoProps={{ href: "/" }}
     logo={
       <Flex alignItems={{ default: "alignItemsCenter" }}>
         <FlexItem>
@@ -114,7 +115,7 @@ export const Header = ({ isNavOpen, onNavToggle, location }) => (
             style={{ color: "white", fontWeight: "bolder" }}
             component={TextVariants.h1}
           >
-            Project Thoth Help
+            Project Thoth
           </Text>
         </FlexItem>
       </Flex>
