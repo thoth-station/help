@@ -22,7 +22,7 @@ import TwitterIcon from "@patternfly/react-icons/dist/esm/icons/twitter-icon";
 import logo from "./logo.png";
 
 const TopNav = ({ location }) => {
-  const navItems = [["", "Home"], ["documentation", "Documentation"]];
+  const navItems = [["", "Home"], ["documentation", "Documentation"], ["support", "Support"], ["metrics", "Metrics"]];
 
 
   return (

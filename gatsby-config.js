@@ -4,11 +4,12 @@ const localSources = yaml.load(
   fs.readFileSync("./config/content-sources.yaml", "utf-8")
 );
 
+
 const remoteSources = [
   {
     name: "documentation/core",
     remote: "https://github.com/thoth-station/core.git",
-    patterns: ["docs/**/*.md"],
+    patterns: ["docs/**/*.md", "community/**/*.md"],
   },
 ];
 

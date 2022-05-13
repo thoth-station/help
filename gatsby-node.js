@@ -18,10 +18,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(
     `
       {
-        allMdx(
-          sort: { fields: [frontmatter___date], order: ASC }
-          limit: 1000
-        ) {
+        allMdx(sort: {fields: [frontmatter___date], order: ASC}, limit: 1000) {
           nodes {
             id
             fields {
@@ -29,7 +26,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
         }
+        navData {
+          navItems {
+            href
+            index
+          }
+        }
       }
+
     `
   );
 
@@ -42,19 +46,20 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const posts = result.data.allMdx.nodes;
-
-  // Create blog posts pages
-  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
-  // `context` is available in the template as a prop and as a variable in GraphQL
+  const items = result.data.navData.navItems
 
   if (posts.length > 0) {
     posts.forEach((post, index) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id;
-      const nextPostId =
-        index === posts.length - 1 ? null : posts[index + 1].id;
+      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id;
+
+      const root = items.find(item => {
+        return item.href === post.fields.slug
+      })?.index
+
 
       createPage({
-        path: post.fields.slug,
+        path: root ?? post.fields.slug,
         component: file,
         context: {
           id: post.id,
@@ -70,13 +75,14 @@ exports.onCreateNode = ({
   node,
   getNode,
   actions: { createNodeField },
-  reporter,
+  reporter
 }) => {
   if (node.internal.type === `Mdx`) {
     const fileNode = getNode(node.parent);
     const gitRemoteNode = getNode(fileNode.gitRemote___NODE);
 
-    const slug =
+
+    let slug =
       (gitRemoteNode ? `/${gitRemoteNode.sourceInstanceName}` : "") +
       createFilePath({
         node,
@@ -85,6 +91,7 @@ exports.onCreateNode = ({
         trailingSlash: false,
       }) +
       (fileNode.name !== "index" ? `.${fileNode.extension}` : "");
+
 
     const srcLink =
       (gitRemoteNode
@@ -175,6 +182,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       id: String
       label: String
       href: String
+      index: String
     }
   `);
 };
