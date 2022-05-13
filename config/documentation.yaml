@@ -1,31 +1,38 @@
 ---
--
-  label: Documentation
+- href: /documentation/core/docs/ROADMAP.md
+  index: /documentation
+- label: Blueprints
   links:
-    -
-      href: /documentation/core/docs/TermsAndConditionsForTheScrum.md
+    - href: /documentation/core/docs/TermsAndConditionsForTheScrum.md
       label: "Terms and Conditions"
-    -
-      href: /documentation/core/docs/ROADMAP.md
-      label: Roadmap
--
-  label: ADRs
+#    - href: /documentation/core/community/labels.md
+#      label: "GitHub Organization Labels"
+    - href: /documentation/core/community/help-wanted.md
+      label: "Help Wanted Labels"
+- label: Special Interest Groups
   links:
-    -
-      href: /documentation/core/docs/adr/0000-use-markdown-architectural-decision-records.md
+    - href: /documentation/core/community/governance.md
+      label: "Governance"
+    - href: /documentation/core/community/sig-devsecops/README.md
+      label: "SIG DevSecOps"
+    - href: /documentation/core/community/sig-observability/README.md
+      label: "SIG Observability"
+    - href: /documentation/core/community/sig-stack-guidance/README.md
+      label: "SIG Stack Guidance"
+    - href: /documentation/core/community/sig-user-experience/README.md
+      label: "SIG User Experience"
+
+- label: Architecture Decision Records
+  links:
+    - href: /documentation/core/docs/adr/0000-use-markdown-architectural-decision-records.md
       label: "0000 Architectural Decision"
-    -
-      href: /documentation/core/docs/adr/0001-use-gpl3-as-license.md
+    - href: /documentation/core/docs/adr/0001-use-gpl3-as-license.md
       label: "0001 License"
-    -
-      href: /documentation/core/docs/adr/0002-release-policy.md
+    - href: /documentation/core/docs/adr/0002-release-policy.md
       label: "0002 Release Policy"
-    -
-      href: /documentation/core/docs/adr/0003-decommision-qeb-hwt.md
+    - href: /documentation/core/docs/adr/0003-decommision-qeb-hwt.md
       label: "0003 Decommission qeb-hwt"
-    -
-      href: /documentation/core/docs/adr/0004-naming-convention-images.md
+    - href: /documentation/core/docs/adr/0004-naming-convention-images.md
       label: "0004 Image Naming Convention"
-    -
-      href: /documentation/core/docs/adr/0005-automatically-bump-container-image-versions.md
+    - href: /documentation/core/docs/adr/0005-automatically-bump-container-image-versions.md
       label: "0005 Bump Versions"

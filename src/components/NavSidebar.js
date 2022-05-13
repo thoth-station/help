@@ -35,7 +35,11 @@ NavItem.propTypes = {
 };
 
 const NavGroup = (props) => {
-  const { id, label, links, location, href } = props;
+  const { id, label, links, location, href, index } = props;
+
+  if(index) {
+    return null;
+  }
 
   const isSubPath = (path) => {
     return location.pathname.split("/")[1] === (withPrefix(path)).split("/")[1];
@@ -94,6 +98,7 @@ export const NavSidebar = ({ isNavOpen, location }) => {
             id
             label
             href
+            index
             links {
               id
               label
