@@ -12,7 +12,7 @@ import {
 
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
-// import './Mdx.scss';
+
 
 export const pageQuery = graphql`
   query DocQuery($id: String) {
@@ -44,7 +44,6 @@ const DocTemplate = ({ data: { site, mdx }, location }) => {
       location={location}
       title={siteTitle}
       srcLink={mdx.fields.srcLink}
-      banner={mdx.frontmatter.banner}
     >
       <Seo
         title={mdx.frontmatter.title}

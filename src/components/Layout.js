@@ -16,7 +16,7 @@ import { Footer } from "./Footer";
 import "@patternfly/react-core/dist/styles/base.css";
 import "./Layout.scss";
 
-export const Layout = ({ location, srcLink, banner, children }) => {
+export const Layout = ({ location, srcLink, children }) => {
   const [isNavOpen, setIsNavOpen] = useState(true);
 
   const onNavToggle = () => {
@@ -36,13 +36,6 @@ export const Layout = ({ location, srcLink, banner, children }) => {
       isManagedSidebar
       className="layout"
     >
-      {banner && (
-        <PageSection className="banner">
-          <TextContent>
-            <section dangerouslySetInnerHTML={{ __html: banner.html }} />
-          </TextContent>
-        </PageSection>
-      )}
       {children}
       <PageSection
         isFilled
@@ -71,10 +64,7 @@ Layout.propTypes = {
   children: PropTypes.node,
   location: PropTypes.shape({
     pathname: PropTypes.string,
-  }),
-  banner: PropTypes.shape({
-    html: PropTypes.string.isRequired,
-  }),
+  })
 };
 
 export default Layout;
