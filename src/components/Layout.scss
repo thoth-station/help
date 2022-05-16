@@ -29,26 +29,6 @@
   padding: var(--pf-global--spacer--md);
 }
 
-.banner {
-  padding-top: 3em;
-  padding-bottom: 3em;
-  background-color: var(--pf-c-page__header--BackgroundColor);
-  color: white;
-  text-align: center;
-
-  .pf-c-content {
-    --pf-c-content--MarginBottom: var(--pf-global--spacer--2xl);
-    --pf-c-content--h1--MarginBottom: var(--pf-global--spacer--2xl);
-    --pf-c-content--h2--MarginBottom: var(--pf-global--spacer--2xl);
-    --pf-c-content--h3--MarginBottom: var(--pf-global--spacer--2xl);
-    --pf-c-content--h4--MarginBottom: var(--pf-global--spacer--2xl);
-    color: white;
-  }
-
-  + .pf-c-page__main-section {
-    margin-top: 0;
-  }
-}
 
 .narrow-text-block {
   max-width: 700px;
