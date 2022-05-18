@@ -165,12 +165,12 @@ exports.createSchemaCustomization = ({ actions }) => {
   // This way the "MarkdownRemark" queries will return `null` even when no
   // blog posts are stored inside "content/blog" instead of returning an error
   createTypes(`
-    type Mdx implements Node @infer{
+    type Mdx implements Node @infer {
       fields: Fields
       frontmatter: Frontmatter
     }
 
-    type MarkdownRemark implements Node @infer{
+    type MarkdownRemark implements Node @infer {
       fields: Fields
       frontmatter: Frontmatter
     }

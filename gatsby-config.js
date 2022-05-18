@@ -48,7 +48,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [`.md`, `.mdx`],
+        extensions: [`.mdx`],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -99,6 +99,7 @@ module.exports = {
               ignoreFileExtensions: [`md`, `mdx`],
             },
           },
+          'gatsby-remark-remove-comments',
           `gatsby-remark-prismjs`,
           `gatsby-remark-smartypants`,
         ],
