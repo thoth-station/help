@@ -3,3 +3,4 @@
 # - path/to/cloned/toc.yaml
 
 - config/documentation.yaml
+- config/support.yaml

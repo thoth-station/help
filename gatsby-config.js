@@ -99,7 +99,6 @@ module.exports = {
               ignoreFileExtensions: [`md`, `mdx`],
             },
           },
-          'gatsby-remark-remove-comments',
           `gatsby-remark-prismjs`,
           `gatsby-remark-smartypants`,
         ],
