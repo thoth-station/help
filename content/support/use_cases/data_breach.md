@@ -1,1 +1,1 @@
-How vulnerabilities are related to data breach: Data Scientists work with vast stores of data. They need to take responsibility for software components installed. If the installed packages are vulnerable, then how that implies having an insecure system. 
+How vulnerabilities are related to data breach: Data Scientists work with vast stores of data. They need to take responsibility for software components installed. If the installed packages are vulnerable, then how that implies having an insecure system.
