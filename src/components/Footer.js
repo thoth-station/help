@@ -20,7 +20,7 @@ export const Footer = () => (
           <Stack>
             <StackItem>
               <Text component={TextVariants.h3}>
-                Useful links
+                Useful as
               </Text>
             </StackItem>
             <StackItem>
