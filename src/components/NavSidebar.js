@@ -9,6 +9,7 @@ import {
   NavList,
   PageSidebar,
 } from "@patternfly/react-core";
+// import { pathPrefix } from '../../gatsby-config';
 
 const NavItem = ({ id, label, href, remote, location }) => {
   let isActive = location.pathname === href;
@@ -43,10 +44,8 @@ const NavGroup = (props) => {
   }
 
   const isSubPath = (path) => {
-    if(location.pathname.split("/")[1] === (withPrefix(path)).split("/")[1]){
-      console.log(path, location.pathname, location.pathname.split("/")[1], (withPrefix(path)).split("/")[1])
-    }
-    return location.pathname.split("/")[1] === (withPrefix(path)).split("/")[1];
+    const normalizedPathname = location.pathname.replace("/help", '')
+    return normalizedPathname.split("/")[1] === path.split("/")[1];
   }
 
 
