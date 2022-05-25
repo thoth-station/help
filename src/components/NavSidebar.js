@@ -37,11 +37,15 @@ NavItem.propTypes = {
 const NavGroup = (props) => {
   const { id, label, links, location, href, index } = props;
 
+
   if(index) {
     return null;
   }
 
   const isSubPath = (path) => {
+    if(location.pathname.split("/")[1] === (withPrefix(path)).split("/")[1]){
+      console.log(path, location.pathname, location.pathname.split("/")[1], (withPrefix(path)).split("/")[1])
+    }
     return location.pathname.split("/")[1] === (withPrefix(path)).split("/")[1];
   }
 
@@ -82,7 +86,7 @@ const NavGroup = (props) => {
 NavGroup.propTypes = {
   links: PropTypes.array,
   id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }),

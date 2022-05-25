@@ -9,7 +9,6 @@ import {
 } from '@patternfly/react-core';
 import footer_logo from "./footer_logo.png"
 import "./Footer.scss";
-import { Link } from 'gatsby';
 
 export const Footer = () => (
     <footer>
@@ -25,29 +24,29 @@ export const Footer = () => (
               </Text>
             </StackItem>
             <StackItem>
-              <Link className="footer-link" replace to="https://github.com/orgs/thoth-station/projects/">
+              <a className="footer-a" href="https://github.com/orgs/thoth-station/projects/">
                 GitHub project board
-              </Link>
+              </a>
             </StackItem>
             <StackItem>
-              <Link className="footer-link" replace to="http://bit.ly/thoth-on-youtube">
+              <a className="footer-a" href="http://bit.ly/thoth-on-youtube">
                 YouTube channel
-              </Link>
+              </a>
             </StackItem>
             <StackItem>
-              <Link className="footer-link" replace to="https://twitter.com/ThothStation">
+              <a className="footer-a" href="https://twitter.com/ThothStation">
                Twitter
-              </Link>
+              </a>
             </StackItem>
             <StackItem>
-              <Link className="footer-link" replace to="https://github.com/thoth-station">
+              <a className="footer-a" href="https://github.com/thoth-station">
                 GitHub organization
-              </Link>
+              </a>
             </StackItem>
             <StackItem>
-              <Link className="footer-link" replace to="https://www.kaggle.com/thothstation">
+              <a className="footer-a" href="https://www.kaggle.com/thothstation">
                 Kaggle datasets
-              </Link>
+              </a>
             </StackItem>
           </Stack>
         </FlexItem>
@@ -59,14 +58,14 @@ export const Footer = () => (
             </Text>
           </StackItem>
           <StackItem>
-            <Link replace className="footer-link" to="https://thoth-station.ninja/docs/developers/adviser/landing_page.html#landing-page">
+            <a className="footer-a" href="https://thoth-station.ninja/docs/developers/adviser/landing_page.html#landing-page">
               Thoth's landing page
-            </Link>
+            </a>
           </StackItem>
           <StackItem>
-            <Link replace className="footer-link" to="https://thoth-station.ninja/docs/developers/adviser/">
+            <a className="footer-a" href="https://thoth-station.ninja/docs/developers/adviser/">
               Main documentation page
-            </Link>
+            </a>
           </StackItem>
         </Stack>
         </FlexItem>
@@ -78,19 +77,19 @@ export const Footer = () => (
               </Text>
             </StackItem>
             <StackItem>
-              <Link className="footer-link" replace to="https://github.com/AICoE/aicoe-ci">
+              <a className="footer-a" href="https://github.com/AICoE/aicoe-ci">
                 AICoE-CI
-              </Link>
+              </a>
             </StackItem>
             <StackItem>
-              <Link className="footer-link" replace to="https://www.operate-first.cloud/">
+              <a className="footer-a" href="https://www.operate-first.cloud/">
                 Operate First
-              </Link>
+              </a>
             </StackItem>
             <StackItem>
-              <Link className="footer-link" replace to="http://opendatahub.io/">
+              <a className="footer-a" href="http://opendatahub.io/">
                 Open Data Hub
-              </Link>
+              </a>
             </StackItem>
           </Stack>
         </FlexItem>

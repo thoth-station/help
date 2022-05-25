@@ -5,8 +5,8 @@
   links:
     - href: /documentation/core/docs/TermsAndConditionsForTheScrum.md
       label: "Terms and Conditions"
-#    - href: /documentation/core/community/labels.md
-#      label: "GitHub Organization Labels"
+    - href: /documentation/core/community/labels.md
+      label: "GitHub Organization Labels"
     - href: /documentation/core/community/help-wanted.md
       label: "Help Wanted Labels"
 - label: Special Interest Groups

@@ -60,22 +60,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       const posts = result.data[`all${type}`].nodes;
 
       if (posts.length > 0) {
-        posts.forEach((post, index) => {
-          const previousPostId = index === 0 ? null : posts[index - 1].id;
-          const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id;
-
+        posts.forEach((post,) => {
           const root = items.find(item => {
             return item.href === post.fields.slug
           })?.index
 
+          const new_path = root ?? post.fields.slug
 
           createPage({
-            path: root ?? post.fields.slug,
+            path: new_path,
             component: file,
             context: {
               id: post.id,
-              previousPostId,
-              nextPostId,
             },
           });
         });

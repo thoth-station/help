@@ -1,0 +1,14 @@
+---
+- label: Use Cases
+  links:
+    - href: /support/use_cases/data_breach.md
+      label: "Data Breach"
+    - href: /support/use_cases/managing.md
+      label: "Managing Vulnerabilities"
+    - href: /support/use_cases/vulnerability_score.md
+      label: "Vulnerability Score"
+
+- label: Interact with the community
+  links:
+    - href: /support/community/overview.md
+      label: "Overview"
