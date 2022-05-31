@@ -80,41 +80,62 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   )
 };
 
-exports.onCreateNode = ({
+exports.onCreateNode = async ({
   node,
-  getNode,
-  actions: { createNodeField },
+  getNode, createNodeId, createContentDigest,
+  actions: { createNodeField, createNode, createParentChildLink }, loadNodeContent,
   reporter
 }) => {
-  if (!supportedTemplates.includes(node.internal.type)) {
-    return;
-  }
-  const fileNode = getNode(node.parent);
-  const gitRemoteNode = getNode(fileNode.gitRemote___NODE);
+  if (supportedTemplates.includes(node.internal.type)) {
+    const fileNode = getNode(node.parent);
+    const gitRemoteNode = getNode(fileNode.gitRemote___NODE);
 
 
-  let slug =
-    (gitRemoteNode ? `/${gitRemoteNode.sourceInstanceName}` : "") +
-    createFilePath({
-      node,
-      getNode,
-      basePath: "",
-      trailingSlash: false,
-    }) +
-    (fileNode.name !== "index" ? `.${fileNode.extension}` : "");
+    let slug =
+      (gitRemoteNode ? `/${gitRemoteNode.sourceInstanceName}` : "") +
+      createFilePath({
+        node,
+        getNode,
+        basePath: "",
+        trailingSlash: false,
+      }) +
+      (fileNode.name !== "index" ? `.${fileNode.extension}` : "");
 
 
-  const srcLink =
-    (gitRemoteNode
-      ? `${gitRemoteNode.webLink}/blob/master/`
-      : `${
+    const srcLink =
+      (gitRemoteNode
+        ? `${gitRemoteNode.webLink}/blob/master/`
+        : `${
           getNode("Site").siteMetadata.srcLinkDefault
         }/blob/master/content/`) + fileNode.relativePath;
 
-  createNodeField({ node, name: "slug", value: slug });
-  createNodeField({ node, name: "srcLink", value: srcLink });
+    createNodeField({ node, name: "slug", value: slug });
+    createNodeField({ node, name: "srcLink", value: srcLink });
 
-  reporter.info(`node created: ${slug}`);
+    reporter.info(`node created: ${slug}`);
+  }
+  else if (node.internal.mediaType === "text/yaml"){
+    const content = await loadNodeContent(node)
+    const contentNode = {
+      raw: content,
+      id: createNodeId(node.id + "raw"),
+      name: node.relativePath,
+      children: [],
+      parent: node.id,
+      internal: {
+        contentDigest: createContentDigest(content),
+        type: "text",
+      },
+    }
+    createNode(contentNode)
+    createParentChildLink({ parent: node, child: contentNode })
+
+    reporter.info(`raw text node created`);
+  }
+  else if (node.internal.type === "text") {
+    const fileNode = getNode(node.parent);
+    createNodeField({ node, name: "relativePath", value: fileNode.relativePath });
+  }
 };
 
 // Create new node collection `NavData` for navigation, parsing table of content files `tocSources`
