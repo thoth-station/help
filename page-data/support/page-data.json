@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-templates-markdown-remark-js",
     "path": "/support",
-    "result": {"data":{"site":{"siteMetadata":{"title":"Thoth Station Help"}},"markdownRemark":{"id":"efe66564-00c3-55e8-9d21-2a4f1aadb1b9","html":"<h3>Support Page</h3>\n<p>This page will Guide users through the process of getting support</p>","fields":{"srcLink":"https://github.com/thoth-station/help/blob/master/content/support/index.md"},"frontmatter":{"title":"","description":null}}},"pageContext":{"id":"efe66564-00c3-55e8-9d21-2a4f1aadb1b9","previousPostId":"de4ca682-e443-5e6f-8c08-21593b6c307a","nextPostId":"87f63dfe-ce3c-5af0-bacc-d8f5caf6b619"}},
+    "result": {"data":{"site":{"siteMetadata":{"title":"Thoth Station Help"}},"markdownRemark":{"id":"efe66564-00c3-55e8-9d21-2a4f1aadb1b9","html":"<h3>Support Page</h3>\n<p>This page will Guide users through the process of getting support</p>","fields":{"srcLink":"https://github.com/thoth-station/help/blob/master/content/support/index.md"},"frontmatter":{"title":"","description":null}}},"pageContext":{"id":"efe66564-00c3-55e8-9d21-2a4f1aadb1b9","previousPostId":"87f63dfe-ce3c-5af0-bacc-d8f5caf6b619","nextPostId":null}},
     "staticQueryHashes": ["1276261476","2902925331","3000541721"]}
