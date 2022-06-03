@@ -1,6 +1,3 @@
-### Metrics Page
-This page will display metrics for Thoth
-
 ### Help Site Metrics
 
 Note: The dashboard is currently visible to users logged in with redhat.com accounts only. For access to the dashboard, please open an issue [here](https://github.com/thoth-station/help/issues/new)

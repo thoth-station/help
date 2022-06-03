@@ -60,22 +60,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       const posts = result.data[`all${type}`].nodes;
 
       if (posts.length > 0) {
-        posts.forEach((post, index) => {
-          const previousPostId = index === 0 ? null : posts[index - 1].id;
-          const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id;
-
+        posts.forEach((post,) => {
           const root = items.find(item => {
             return item.href === post.fields.slug
           })?.index
 
+          const new_path = root ?? post.fields.slug
 
           createPage({
-            path: root ?? post.fields.slug,
+            path: new_path,
             component: file,
             context: {
               id: post.id,
-              previousPostId,
-              nextPostId,
             },
           });
         });
@@ -84,41 +80,62 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   )
 };
 
-exports.onCreateNode = ({
+exports.onCreateNode = async ({
   node,
-  getNode,
-  actions: { createNodeField },
+  getNode, createNodeId, createContentDigest,
+  actions: { createNodeField, createNode, createParentChildLink }, loadNodeContent,
   reporter
 }) => {
-  if (!supportedTemplates.includes(node.internal.type)) {
-    return;
-  }
-  const fileNode = getNode(node.parent);
-  const gitRemoteNode = getNode(fileNode.gitRemote___NODE);
+  if (supportedTemplates.includes(node.internal.type)) {
+    const fileNode = getNode(node.parent);
+    const gitRemoteNode = getNode(fileNode.gitRemote___NODE);
 
 
-  let slug =
-    (gitRemoteNode ? `/${gitRemoteNode.sourceInstanceName}` : "") +
-    createFilePath({
-      node,
-      getNode,
-      basePath: "",
-      trailingSlash: false,
-    }) +
-    (fileNode.name !== "index" ? `.${fileNode.extension}` : "");
+    let slug =
+      (gitRemoteNode ? `/${gitRemoteNode.sourceInstanceName}` : "") +
+      createFilePath({
+        node,
+        getNode,
+        basePath: "",
+        trailingSlash: false,
+      }) +
+      (fileNode.name !== "index" ? `.${fileNode.extension}` : "");
 
 
-  const srcLink =
-    (gitRemoteNode
-      ? `${gitRemoteNode.webLink}/blob/master/`
-      : `${
+    const srcLink =
+      (gitRemoteNode
+        ? `${gitRemoteNode.webLink}/blob/master/`
+        : `${
           getNode("Site").siteMetadata.srcLinkDefault
         }/blob/master/content/`) + fileNode.relativePath;
 
-  createNodeField({ node, name: "slug", value: slug });
-  createNodeField({ node, name: "srcLink", value: srcLink });
+    createNodeField({ node, name: "slug", value: slug });
+    createNodeField({ node, name: "srcLink", value: srcLink });
 
-  reporter.info(`node created: ${slug}`);
+    reporter.info(`node created: ${slug}`);
+  }
+  else if (node.internal.mediaType === "text/yaml"){
+    const content = await loadNodeContent(node)
+    const contentNode = {
+      raw: content,
+      id: createNodeId(node.id + "raw"),
+      name: node.relativePath,
+      children: [],
+      parent: node.id,
+      internal: {
+        contentDigest: createContentDigest(content),
+        type: "text",
+      },
+    }
+    createNode(contentNode)
+    createParentChildLink({ parent: node, child: contentNode })
+
+    reporter.info(`raw text node created`);
+  }
+  else if (node.internal.type === "text") {
+    const fileNode = getNode(node.parent);
+    createNodeField({ node, name: "relativePath", value: fileNode.relativePath });
+  }
 };
 
 // Create new node collection `NavData` for navigation, parsing table of content files `tocSources`
@@ -169,12 +186,12 @@ exports.createSchemaCustomization = ({ actions }) => {
   // This way the "MarkdownRemark" queries will return `null` even when no
   // blog posts are stored inside "content/blog" instead of returning an error
   createTypes(`
-    type Mdx implements Node @infer{
+    type Mdx implements Node @infer {
       fields: Fields
       frontmatter: Frontmatter
     }
 
-    type MarkdownRemark implements Node @infer{
+    type MarkdownRemark implements Node @infer {
       fields: Fields
       frontmatter: Frontmatter
     }

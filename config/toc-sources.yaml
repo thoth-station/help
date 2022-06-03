@@ -2,4 +2,5 @@
 # - path/to/local.yaml
 # - path/to/cloned/toc.yaml
 
-- config/documentation.yaml
+- config/community.yaml
+- config/support.yaml

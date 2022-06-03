@@ -1,0 +1,7 @@
+---
+- label: FAQ
+  links:
+    - href: /support/faq/overview.mdx
+      label: "Overview"
+    - href: /support/faq/thoth_yaml.mdx
+      label: "Default .thoth.yaml"
