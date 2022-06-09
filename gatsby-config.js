@@ -9,7 +9,7 @@ const remoteSources = [
   {
     name: "community/core",
     remote: "https://github.com/thoth-station/core.git",
-    patterns: ["docs/**/*.md", "community/**/*.md"],
+    patterns: ["docs/**/*.md", "community/**/!(sig-list|labels)*.md"],
   },
   {
     name: "support/thamos",
@@ -53,7 +53,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [`.mdx`],
+        extensions: [`.mdx`, '.md'],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,

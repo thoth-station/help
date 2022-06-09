@@ -18,7 +18,7 @@ export const CodeBlock = ({relativePath, type}) => {
         }
       `}
       render={data => {
-        const node = data?.allText?.nodes?.find(node => node.relativePath === relativePath)
+        const node = data?.allText?.nodes?.find(node => node.name === relativePath)
         if(node) {
           return (
             <Highlight {...defaultProps} code={node.raw} language={type} theme={github}>
