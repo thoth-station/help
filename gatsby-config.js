@@ -12,7 +12,7 @@ const remoteSources = [
   },
   {
     name: "support/thamos",
-    remote: "git@github.com:thoth-station/thamos.git",
+    remote: "https://github.com/thoth-station/thamos.git",
     patterns: ["thamos/data/defaultThoth.yaml"],
   },
 ];
