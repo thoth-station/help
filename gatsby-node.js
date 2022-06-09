@@ -8,8 +8,7 @@ const tocSources = yaml.load(
   fs.readFileSync(`./config/toc-sources.yaml`, `utf-8`)
 );
 
-const supportedTemplates = ['MarkdownRemark', 'Mdx'];
-
+const supportedTemplates = ["Mdx"];
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
@@ -25,7 +24,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         }
       }
     `
-  )
+  );
 
   const items = items_query.data.navData.navItems;
   return Promise.all(
@@ -60,12 +59,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       const posts = result.data[`all${type}`].nodes;
 
       if (posts.length > 0) {
-        posts.forEach((post,) => {
-          const root = items.find(item => {
-            return item.href === post.fields.slug
-          })?.index
+        posts.forEach((post) => {
+          const root = items.find((item) => {
+            return item.href === post.fields.slug;
+          })?.index;
 
-          const new_path = root ?? post.fields.slug
+          const new_path = root ?? post.fields.slug;
 
           createPage({
             path: new_path,
@@ -77,19 +76,21 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         });
       }
     })
-  )
+  );
 };
 
 exports.onCreateNode = async ({
   node,
-  getNode, createNodeId, createContentDigest,
-  actions: { createNodeField, createNode, createParentChildLink }, loadNodeContent,
-  reporter
+  getNode,
+  createNodeId,
+  createContentDigest,
+  actions: { createNodeField, createNode, createParentChildLink },
+  loadNodeContent,
+  reporter,
 }) => {
   if (supportedTemplates.includes(node.internal.type)) {
     const fileNode = getNode(node.parent);
     const gitRemoteNode = getNode(fileNode.gitRemote___NODE);
-
 
     let slug =
       (gitRemoteNode ? `/${gitRemoteNode.sourceInstanceName}` : "") +
@@ -101,21 +102,19 @@ exports.onCreateNode = async ({
       }) +
       (fileNode.name !== "index" ? `.${fileNode.extension}` : "");
 
-
     const srcLink =
       (gitRemoteNode
         ? `${gitRemoteNode.webLink}/blob/master/`
         : `${
-          getNode("Site").siteMetadata.srcLinkDefault
-        }/blob/master/content/`) + fileNode.relativePath;
+            getNode("Site").siteMetadata.srcLinkDefault
+          }/blob/master/content/`) + fileNode.relativePath;
 
     createNodeField({ node, name: "slug", value: slug });
     createNodeField({ node, name: "srcLink", value: srcLink });
 
     reporter.info(`node created: ${slug}`);
-  }
-  else if (node.internal.mediaType === "text/yaml"){
-    const content = await loadNodeContent(node)
+  } else if (node.internal.mediaType === "text/yaml") {
+    const content = await loadNodeContent(node);
     const contentNode = {
       raw: content,
       id: createNodeId(node.id + "raw"),
@@ -126,15 +125,18 @@ exports.onCreateNode = async ({
         contentDigest: createContentDigest(content),
         type: "text",
       },
-    }
-    createNode(contentNode)
-    createParentChildLink({ parent: node, child: contentNode })
+    };
+    createNode(contentNode);
+    createParentChildLink({ parent: node, child: contentNode });
 
     reporter.info(`raw text node created`);
-  }
-  else if (node.internal.type === "text") {
+  } else if (node.internal.type === "text") {
     const fileNode = getNode(node.parent);
-    createNodeField({ node, name: "relativePath", value: fileNode.relativePath });
+    createNodeField({
+      node,
+      name: "relativePath",
+      value: fileNode.relativePath,
+    });
   }
 };
 

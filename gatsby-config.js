@@ -4,18 +4,17 @@ const localSources = yaml.load(
   fs.readFileSync("./config/content-sources.yaml", "utf-8")
 );
 
-
 const remoteSources = [
   {
     name: "community/core",
     remote: "https://github.com/thoth-station/core.git",
-    patterns: ["docs/**/*.md", "community/**/*.md"],
+    patterns: ["docs/**/*.md", "community/**/!(sig-list|labels)*.md"],
   },
   {
     name: "support/thamos",
-    remote: "git@github.com:thoth-station/thamos.git",
+    remote: "https://github.com/thoth-station/thamos.git",
     patterns: ["thamos/data/defaultThoth.yaml"],
-  }
+  },
 ];
 
 module.exports = {
@@ -53,13 +52,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [`.mdx`],
+        extensions: [`.mdx`, ".md"],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 630,
-              linkImagesToOriginal: false
+              linkImagesToOriginal: false,
             },
           },
           {
@@ -79,36 +78,36 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        gfm: true,
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 590,
-              disableBgImageOnAlpha: true,
-              backgroundColor: 'transparent',
-            },
-          },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
-          {
-            resolve: `gatsby-remark-copy-linked-files`,
-            options: {
-              ignoreFileExtensions: [`md`, `mdx`],
-            },
-          },
-          `gatsby-remark-prismjs`,
-          `gatsby-remark-smartypants`,
-        ],
-      },
-    },
+    // {
+    //   resolve: `gatsby-transformer-remark`,
+    //   options: {
+    //     gfm: true,
+    //     plugins: [
+    //       {
+    //         resolve: `gatsby-remark-images`,
+    //         options: {
+    //           maxWidth: 590,
+    //           disableBgImageOnAlpha: true,
+    //           backgroundColor: "transparent",
+    //         },
+    //       },
+    //       {
+    //         resolve: `gatsby-remark-responsive-iframe`,
+    //         options: {
+    //           wrapperStyle: `margin-bottom: 1.0725rem`,
+    //         },
+    //       },
+    //       {
+    //         resolve: `gatsby-remark-copy-linked-files`,
+    //         options: {
+    //           ignoreFileExtensions: [`md`, `mdx`],
+    //         },
+    //       },
+    //       `gatsby-remark-prismjs`,
+    //       `gatsby-remark-smartypants`,
+    //     ],
+    //   },
+    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

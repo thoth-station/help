@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, useStaticQuery, graphql, withPrefix } from 'gatsby';
+import { Link, useStaticQuery, graphql, withPrefix } from "gatsby";
 import {
   PageHeader,
   PageHeaderTools,
@@ -22,8 +22,12 @@ import TwitterIcon from "@patternfly/react-icons/dist/esm/icons/twitter-icon";
 import logo from "./logo.png";
 
 const TopNav = ({ location }) => {
-  const navItems = [["", "Home"], ["support", "Get Support"], ["community", "Community Layout"], ["metrics", "Metrics"]];
-
+  const navItems = [
+    ["", "Home"],
+    ["support", "Get Support"],
+    ["community", "Community Layout"],
+    ["metrics", "Metrics"],
+  ];
 
   return (
     <Nav variant="horizontal">
@@ -32,7 +36,10 @@ const TopNav = ({ location }) => {
           <NavItem
             key={id}
             itemId={id}
-            isActive={location.pathname.startsWith(withPrefix(`/${id}`)) && (id !== "" || location.pathname === withPrefix("/"))}
+            isActive={
+              location.pathname.startsWith(withPrefix(`/${id}`)) &&
+              (id !== "" || location.pathname === withPrefix("/"))
+            }
           >
             <Link to={`/${id}`}>{label}</Link>
           </NavItem>
@@ -89,7 +96,7 @@ const HeaderTools = () => {
           <Button
             component="a"
             variant="plain"
-            style={{padding: ".5rem"}}
+            style={{ padding: ".5rem" }}
             href={t.href}
             target="top"
             aria-label={t.ariaLabel}

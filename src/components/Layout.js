@@ -45,7 +45,7 @@ export const Layout = ({ location, srcLink, children }) => {
         <TextContent>
           <Button
             variant="primary"
-            style={{padding: "1rem", fontWeight: "bold"}}
+            style={{ padding: "1rem", fontWeight: "bold" }}
             component="a"
             href={srcLink}
             target="_contribute"
@@ -64,7 +64,7 @@ Layout.propTypes = {
   children: PropTypes.node,
   location: PropTypes.shape({
     pathname: PropTypes.string,
-  })
+  }),
 };
 
 export default Layout;
