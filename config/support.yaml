@@ -1,14 +1,7 @@
 ---
-- label: Use Cases
+- label: FAQ
   links:
-    - href: /support/use_cases/data_breach.md
-      label: "Data Breach"
-    - href: /support/use_cases/managing.md
-      label: "Managing Vulnerabilities"
-    - href: /support/use_cases/vulnerability_score.md
-      label: "Vulnerability Score"
-
-- label: Interact with the community
-  links:
-    - href: /support/community/overview.md
+    - href: /support/faq/overview.mdx
       label: "Overview"
+    - href: /support/faq/thoth_yaml.mdx
+      label: "Default .thoth.yaml"

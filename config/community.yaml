@@ -1,0 +1,38 @@
+---
+- href: /community/core/docs/ROADMAP.md
+  index: /community
+- label: Blueprints
+  links:
+    - href: /community/core/docs/TermsAndConditionsForTheScrum.md
+      label: "Terms and Conditions"
+    - href: /community/core/community/labels.md
+      label: "GitHub Organization Labels"
+    - href: /community/core/community/help-wanted.md
+      label: "Help Wanted Labels"
+- label: Special Interest Groups
+  links:
+    - href: /community/core/community/governance.md
+      label: "Governance"
+    - href: /community/core/community/sig-devsecops/README.md
+      label: "SIG DevSecOps"
+    - href: /community/core/community/sig-observability/README.md
+      label: "SIG Observability"
+    - href: /community/core/community/sig-stack-guidance/README.md
+      label: "SIG Stack Guidance"
+    - href: /community/core/community/sig-user-experience/README.md
+      label: "SIG User Experience"
+
+- label: Architecture Decision Records
+  links:
+    - href: /community/core/docs/adr/0000-use-markdown-architectural-decision-records.md
+      label: "0000 Architectural Decision"
+    - href: /community/core/docs/adr/0001-use-gpl3-as-license.md
+      label: "0001 License"
+    - href: /community/core/docs/adr/0002-release-policy.md
+      label: "0002 Release Policy"
+    - href: /community/core/docs/adr/0003-decommision-qeb-hwt.md
+      label: "0003 Decommission qeb-hwt"
+    - href: /community/core/docs/adr/0004-naming-convention-images.md
+      label: "0004 Image Naming Convention"
+    - href: /community/core/docs/adr/0005-automatically-bump-container-image-versions.md
+      label: "0005 Bump Versions"

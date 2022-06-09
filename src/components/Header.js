@@ -22,7 +22,7 @@ import TwitterIcon from "@patternfly/react-icons/dist/esm/icons/twitter-icon";
 import logo from "./logo.png";
 
 const TopNav = ({ location }) => {
-  const navItems = [["", "Home"], ["documentation", "Documentation"], ["support", "Support"], ["metrics", "Metrics"]];
+  const navItems = [["", "Home"], ["support", "Get Support"], ["community", "Community Layout"], ["metrics", "Metrics"]];
 
 
   return (
@@ -89,6 +89,7 @@ const HeaderTools = () => {
           <Button
             component="a"
             variant="plain"
+            style={{padding: ".5rem"}}
             href={t.href}
             target="top"
             aria-label={t.ariaLabel}

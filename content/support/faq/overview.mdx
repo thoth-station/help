@@ -1,0 +1,52 @@
+import { AvailableEnvironmentsTool } from '../../../src/components/AvailableEnvironmentsTool';
+
+
+## How do I use Thoth?
+Depending on your use case, you can interact with Thoth through a variety of integration points.
+
+#### Thamos CLI
+[Thamos](https://github.com/thoth-station/thamos) is a command line tool and [library](https://pypi.org/project/thamos/) for communicating with the Thoth backend. More information on how to
+install and get started with it can be found in our [tutorial](https://redhat-scholars.github.io/managing-vulnerabilities-with-thoth/) space.
+
+#### Kebechet
+Kebechet is an extensible system of repository managers for GitHub, GitLab, and Pagure. You can use this bot integrate
+the functionality of Thoth into your repositories. More information on Kebechet can be found [here](https://thoth-station.ninja/docs/developers/kebechet/index.html).
+
+#### Jupyterlab Extension
+If you use Jupyterlab for development, this [extension](https://github.com/thoth-station/jupyterlab-requirements) allows
+you to integrate Thoth's adviser into your notebook's environment.
+
+#### Thoth User API
+You can directly interact with the [Thoth User API](https://khemenu.thoth-station.ninja/api/v1/ui/) too.
+
+---
+
+## What are Kebechet managers and how do I configure them?
+Managers can be seen as separate bots all part of Kebechet. You can enable and configure each available bot by adding it
+to your `.thoth.yaml` file in your repository. More information on what bots are available can be found [here](https://thoth-station.ninja/docs/developers/kebechet/managers.html#available-managers).
+
+---
+
+## How do I configure my `.thoth.yaml` file?
+Thoth's configuration file gets placed in the root of your repository (named as `.thoth.yaml`). This gets used by Thamos CLI and Thoth's bots.
+The full set of options to configure your `.thoth.yaml` file are outlined and commented [here](https://thoth-station.ninja/help/support/configure/thoth_yaml.mdx).
+
+---
+
+## How do I configure the Thoth Advise Manager?
+Detailed information on how to configure this manager can be found in the
+[thoth-station/thamos](https://github.com/thoth-station/thamos) repository.
+
+### Configuring the `runtime_environment`
+Setting the `runtime_environment` tells Thoth Advisor which operating system and Python version should be used when
+resolving your dependencies.
+
+To list available environments for which the resolver can resolve dependencies, run the Thamos CLI command:
+
+``` console
+thamos environments
+```
+
+or use the Available Environments Tool:
+
+<AvailableEnvironmentsTool/>

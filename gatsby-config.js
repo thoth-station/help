@@ -7,10 +7,15 @@ const localSources = yaml.load(
 
 const remoteSources = [
   {
-    name: "documentation/core",
+    name: "community/core",
     remote: "https://github.com/thoth-station/core.git",
     patterns: ["docs/**/*.md", "community/**/*.md"],
   },
+  {
+    name: "support/thamos",
+    remote: "git@github.com:thoth-station/thamos.git",
+    patterns: ["thamos/data/defaultThoth.yaml"],
+  }
 ];
 
 module.exports = {

@@ -45,7 +45,7 @@ export const Layout = ({ location, srcLink, children }) => {
         <TextContent>
           <Button
             variant="primary"
-            isLarge
+            style={{padding: "1rem", fontWeight: "bold"}}
             component="a"
             href={srcLink}
             target="_contribute"
