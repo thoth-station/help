@@ -8,7 +8,7 @@ const tocSources = yaml.load(
   fs.readFileSync(`./config/toc-sources.yaml`, `utf-8`)
 );
 
-const supportedTemplates = ["MarkdownRemark", "Mdx"];
+const supportedTemplates = ["Mdx"];
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;

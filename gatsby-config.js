@@ -78,36 +78,36 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        gfm: true,
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 590,
-              disableBgImageOnAlpha: true,
-              backgroundColor: "transparent",
-            },
-          },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
-          {
-            resolve: `gatsby-remark-copy-linked-files`,
-            options: {
-              ignoreFileExtensions: [`md`, `mdx`],
-            },
-          },
-          `gatsby-remark-prismjs`,
-          `gatsby-remark-smartypants`,
-        ],
-      },
-    },
+    // {
+    //   resolve: `gatsby-transformer-remark`,
+    //   options: {
+    //     gfm: true,
+    //     plugins: [
+    //       {
+    //         resolve: `gatsby-remark-images`,
+    //         options: {
+    //           maxWidth: 590,
+    //           disableBgImageOnAlpha: true,
+    //           backgroundColor: "transparent",
+    //         },
+    //       },
+    //       {
+    //         resolve: `gatsby-remark-responsive-iframe`,
+    //         options: {
+    //           wrapperStyle: `margin-bottom: 1.0725rem`,
+    //         },
+    //       },
+    //       {
+    //         resolve: `gatsby-remark-copy-linked-files`,
+    //         options: {
+    //           ignoreFileExtensions: [`md`, `mdx`],
+    //         },
+    //       },
+    //       `gatsby-remark-prismjs`,
+    //       `gatsby-remark-smartypants`,
+    //     ],
+    //   },
+    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
