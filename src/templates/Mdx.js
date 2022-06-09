@@ -13,7 +13,6 @@ import {
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 
-
 export const pageQuery = graphql`
   query DocQuery($id: String) {
     site {
@@ -40,11 +39,7 @@ const DocTemplate = ({ data: { site, mdx }, location }) => {
   const shortcodes = { Link }; // Provide common components here
 
   return (
-    <Layout
-      location={location}
-      title={siteTitle}
-      srcLink={mdx.fields.srcLink}
-    >
+    <Layout location={location} title={siteTitle} srcLink={mdx.fields.srcLink}>
       <Seo
         title={mdx.frontmatter.title}
         description={mdx.frontmatter.description}

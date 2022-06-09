@@ -1,10 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-import { PageSection, PageSectionVariants, TextContent } from '@patternfly/react-core';
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
+import {
+  PageSection,
+  PageSectionVariants,
+  TextContent,
+} from "@patternfly/react-core";
 
-import Layout from '../components/Layout';
-import Seo from '../components/Seo';
+import Layout from "../components/Layout";
+import Seo from "../components/Seo";
 
 export const pageQuery = graphql`
   query MarkdownQuery($id: String) {

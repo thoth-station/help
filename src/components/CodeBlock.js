@@ -1,10 +1,9 @@
-import React from "react"
+import React from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import github from "prism-react-renderer/themes/github";
-import { graphql, StaticQuery } from 'gatsby';
+import { graphql, StaticQuery } from "gatsby";
 
-
-export const CodeBlock = ({relativePath, type}) => {
+export const CodeBlock = ({ relativePath, type }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -17,11 +16,18 @@ export const CodeBlock = ({relativePath, type}) => {
           }
         }
       `}
-      render={data => {
-        const node = data?.allText?.nodes?.find(node => node.name === relativePath)
-        if(node) {
+      render={(data) => {
+        const node = data?.allText?.nodes?.find(
+          (node) => node.name === relativePath
+        );
+        if (node) {
           return (
-            <Highlight {...defaultProps} code={node.raw} language={type} theme={github}>
+            <Highlight
+              {...defaultProps}
+              code={node.raw}
+              language={type}
+              theme={github}
+            >
               {({ className, style, tokens, getLineProps, getTokenProps }) => (
                 <pre className={className} style={style}>
                   {tokens.map((line, i) => (
@@ -32,12 +38,11 @@ export const CodeBlock = ({relativePath, type}) => {
                     </div>
                   ))}
                 </pre>
-                )}
+              )}
             </Highlight>
-          )
+          );
         }
       }}
     />
-
-  )
-}
+  );
+};

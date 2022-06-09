@@ -38,16 +38,14 @@ NavItem.propTypes = {
 const NavGroup = (props) => {
   const { id, label, links, location, href, index } = props;
 
-
-  if(index) {
+  if (index) {
     return null;
   }
 
   const isSubPath = (path) => {
-    const normalizedPathname = location.pathname.replace("/help", '')
+    const normalizedPathname = location.pathname.replace("/help", "");
     return normalizedPathname.split("/")[1] === path.split("/")[1];
-  }
-
+  };
 
   if (!links) {
     if (!isSubPath(href)) {

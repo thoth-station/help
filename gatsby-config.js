@@ -4,7 +4,6 @@ const localSources = yaml.load(
   fs.readFileSync("./config/content-sources.yaml", "utf-8")
 );
 
-
 const remoteSources = [
   {
     name: "community/core",
@@ -15,7 +14,7 @@ const remoteSources = [
     name: "support/thamos",
     remote: "git@github.com:thoth-station/thamos.git",
     patterns: ["thamos/data/defaultThoth.yaml"],
-  }
+  },
 ];
 
 module.exports = {
@@ -53,13 +52,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [`.mdx`, '.md'],
+        extensions: [`.mdx`, ".md"],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 630,
-              linkImagesToOriginal: false
+              linkImagesToOriginal: false,
             },
           },
           {
@@ -89,7 +88,7 @@ module.exports = {
             options: {
               maxWidth: 590,
               disableBgImageOnAlpha: true,
-              backgroundColor: 'transparent',
+              backgroundColor: "transparent",
             },
           },
           {
