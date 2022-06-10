@@ -1,10 +1,11 @@
 ---
-- href: /community/core/docs/ROADMAP.md
+- href: /community/core/docs/TermsAndConditionsForTheScrum.md
+  label: Terms and Conditions
   index: /community
 - label: Blueprints
   links:
-    - href: /community/core/docs/TermsAndConditionsForTheScrum.md
-      label: "Terms and Conditions"
+    - label: Thoth Roadmap
+      href: /community/core/docs/ROADMAP.md
 #    - href: /community/core/community/labels.md
 #      label: "GitHub Organization Labels"
     - href: /community/core/community/help-wanted.md

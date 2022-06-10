@@ -1,3 +1,5 @@
+- label: Thoth Service Status
+  href: "/metrics"
 - href: /metrics/issue_metrics.md
   label: "GitHub Support"
 - href: /metrics/site_metrics.md

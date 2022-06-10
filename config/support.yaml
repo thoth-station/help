@@ -1,4 +1,6 @@
 ---
+- label: Getting Support
+  href: /support
 - label: FAQ
   links:
     - href: /support/faq/overview.mdx
