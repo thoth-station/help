@@ -47,7 +47,13 @@ const NavGroup = (props) => {
     if (!isSubPath(href)) {
       return null;
     }
-    return <NavItem {...props} href={index && label ? index: href} location={location} />;
+    return (
+      <NavItem
+        {...props}
+        href={index && label ? index : href}
+        location={location}
+      />
+    );
   }
 
   const navItems = links
