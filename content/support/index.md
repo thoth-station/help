@@ -4,7 +4,7 @@
 
 - [GitHub Issues](https://github.com/thoth-station/support/issues/new/choose)
 - [Thoth Developer Google Chat Room](https://chat.google.com/room/AAAAVjnVXFk)
-- [FAQ](https://thoth-station.ninja/help/support/faq/overview.md)
+- [FAQ](https://thoth-station.ninja/help/support/faq/overview.mdx)
 
 ## GitHub Issues
 
@@ -12,7 +12,7 @@ The primary channel for getting support is by creating a GitHub issue through ou
 Choose between any of the issue templates or create a [blank issue](https://github.com/thoth-station/support/issues/new) if no template fits your situation.
 Once created, your issue will be delegated out to one of Thoth's [Special Interest Groups (SIG)](https://thoth-station.ninja/help/community/core/community/governance.md)
 or a specific person on the Thoth team. They will help you get the issue ready to be worked on by refining the issue to
-meet our standards for a [_good quality issue_](https://thoth-station.ninja/help/community/core/docs/TermsAndConditionsForTheScrum.md#quality).
+meet our standards for a [_good quality issue_](https://thoth-station.ninja/help/community#quality).
 Then your issue will be planned and worked on depending on its urgency.
 
 ### Templates
@@ -31,4 +31,4 @@ request access in our [support repository](https://github.com/thoth-station/supp
 
 ## Frequently Asked Questions (FAQ)
 
-Be sure to take a look at the [FAQ](https://thoth-station.ninja/help/support/faq/overview.md) to see if your issue has already been resolved.
+Be sure to take a look at the [FAQ](https://thoth-station.ninja/help/support/faq/overview.mdx) to see if your issue has already been resolved.
