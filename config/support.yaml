@@ -7,3 +7,5 @@
       label: "Overview"
     - href: /support/faq/thoth_yaml.mdx
       label: "Default .thoth.yaml"
+- label: "Track your issue"
+  href: /support/issue_tracker.mdx

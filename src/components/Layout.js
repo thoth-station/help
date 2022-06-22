@@ -13,7 +13,7 @@ import { Header } from "./Header";
 import { NavSidebar } from "./NavSidebar";
 import { Footer } from "./Footer";
 
-import "@patternfly/react-core/dist/styles/base.css";
+import "@patternfly/patternfly/patternfly.css";
 import "./Layout.scss";
 
 export const Layout = ({ location, srcLink, children }) => {
