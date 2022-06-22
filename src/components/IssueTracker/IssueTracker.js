@@ -46,7 +46,8 @@ const IssueTracker = () => {
   }, [issue]);
 
   useEffect(() => {
-    const { issue_url } = queryString.parse(location.search);
+    const issue_url = queryString.parse(location.search)?.issue;
+
     if (issue_url) {
       handleChange(decodeURIComponent(issue_url));
       handleFetch(issue_url);
